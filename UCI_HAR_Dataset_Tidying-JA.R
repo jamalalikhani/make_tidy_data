@@ -13,19 +13,23 @@ setwd(directory)
 # laoding data:
 X_train <- read.table("./train/X_train.txt", header = FALSE, sep = "")
 y_train <- read.table("./train/y_train.txt", header = FALSE, sep = "")
+subject_train <- read.table("./train/subject_train.txt", header = FALSE, sep = "")
 X_test <- read.table("./test/X_test.txt", header = FALSE, sep = "")
 y_test <- read.table("./test/y_test.txt", header = FALSE, sep = "")
+subject_test <- read.table("./test/subject_test.txt", header = FALSE, sep = "")
 
 features <- read.table("features.txt", header = FALSE, sep = "")
 colnames(X_train) <- features[,2]
 colnames(X_test) <- features[,2]
 colnames(y_train) <- "activity"
 colnames(y_test) <- "activity"
+colnames(subject_train) <- "subject"
+colnames(subject_test) <- "subject"
 rm(features)  # remove redundant data
 
 # Meging and combining data
-train <- cbind(X_train, y_train)
-test <- cbind(X_test, y_test)
+train <- cbind(X_train, y_train, subject_train)
+test <- cbind(X_test, y_test, subject_test)
 rm(X_train) # remove redundant data
 rm(X_test)  # remove redundant data
 rm(y_train) # remove redundant data
@@ -45,7 +49,7 @@ colnames(full_dataset) <- colNames_unique
 full_df <- tbl_df(full_dataset)
 rm(full_dataset)
 
-selected_df <- select(full_df, contains("mean"), contains("std"), contains("activity"))
+selected_df <- select(full_df, contains("mean"), contains("std"), contains("activity"), contains("subject"))
 rm(full_df)
 
 
@@ -67,13 +71,14 @@ colnames(selected_df) <- selected_df_names
 
 # create a tidy dataset (NOTE: column "activity" contains 6 variables)
 tidy_UCI_HAR <- selected_df %>% 
-        group_by(activity) %>%
+        group_by(activity, subject) %>%
         summarise_each(funs(mean)) 
 
 tidy_UCI_HAR_name <- paste("mean_of_", names(tidy_UCI_HAR), sep = "")
-tidy_UCI_HAR_name[1] <- names(tidy_UCI_HAR)[1]
+tidy_UCI_HAR_name[1:2] <- names(tidy_UCI_HAR)[1:2]
 colnames(tidy_UCI_HAR) <- tidy_UCI_HAR_name
 
 View(tidy_UCI_HAR)
 write.table(tidy_UCI_HAR, file = "tidy_UCI_HAR.txt", row.name=FALSE) 
+
 
