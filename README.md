@@ -6,3 +6,7 @@ The code performs merging, selecting, summarizing and finally spread function to
 
 For information about the dataset, the transformations, and the feature names, please see the `CodeBooke.md`. 
 
+I have also uploaded the `Tidy Data` paper by `Hadley Wickham` that I found it very useful and informative. It's must-to-read for everyone who wants to create tidy data set out of cleaned but messy data. 
+
+Please email me at: jamal.alikhani@gmail.com if you have any questions/corrections. 
+
