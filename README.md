@@ -4,5 +4,5 @@ This `R` script reads four different `.txt` files from the two folders: train an
 
 The code performs merging, selecting, summarizing and finally spread function to write out the final result: `tidy_UCI_HAR.txt`
 
-For information about the dataset, the transformations, and the feature names, please see the CodeBooke.ME. 
+For information about the dataset, the transformations, and the feature names, please see the `CodeBooke.md`. 
 
