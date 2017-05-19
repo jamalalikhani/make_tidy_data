@@ -9,14 +9,14 @@ Reference:
 [1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
 
 ### Creating One Data Farme
-The origional datasets were devided to two partiotions: train and test. Each partition was also devided to two parts. In the first step, all the 4 devided datasets uploaded to R by using `read.table`. The data cambined and merged by using `cbind` and `rbind`. 
+The origional datasets were devided to two partiotions: train and test. Each partition was also devided to three parts. In the first step, all the 6 devided datasets uploaded to R by using `read.table`. The data cambined and merged by using `cbind` and `rbind`. 
 
 Thereafter, dataframe were labled appropriately by using the name list provided in the data source. Some column names had duplication that is solved by adding a unique number to each column name. This numbers later on were rempved. 
 
-At this point a large dataset of 10,299 rows and 562 columns. 
+At this point a large dataset of 10,299 rows and 563 columns. 
 
 ### Creating a smaller Data Farme by using select() operator 
-The dplyr library is used to change the dataframes into a tibble. Thecolumns including the word "mean" and "std" is selected to create a new table with 10,299 rows and 87 coulumns. 
+The dplyr library is used to change the dataframes into a tibble. Thecolumns including the word "mean" and "std" is selected to create a new table with 10,299 rows and 88 coulumns. 
 
 ### Creating a tidy data set:
 The tidyr library is used, and the mean of all the columns is calculated where the whole table was grouped by activity field. Activity field is a categorial column with 6 distinguished values. Therefore, a final table of 6 by 87 was the output. Each row indicates one of the activities and each column the mean of all the observations for each activity. 
@@ -28,6 +28,9 @@ The tidyr library is used, and the mean of all the columns is calculated where t
 4 SITTING
 5 STANDING
 6 LAYING
+
+### Subject Labels
+Between number 1 to 30.
 
 ### Variable names:
 As speaked in the origional datasourec: "The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals)."
