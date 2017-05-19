@@ -22,12 +22,12 @@ The dplyr library is used to change the dataframes into a tibble. Thecolumns inc
 The tidyr library is used, and the mean of all the columns is calculated where the whole table was grouped by activity field. Activity field is a categorial column with 6 distinguished values. Therefore, a final table of 6 by 87 was the output. Each row indicates one of the activities and each column the mean of all the observations for each activity. 
 
 ### Activity Labels
-1 WALKING
-2 WALKING_UPSTAIRS
-3 WALKING_DOWNSTAIRS
-4 SITTING
-5 STANDING
-6 LAYING
+-1 WALKING
+-2 WALKING_UPSTAIRS
+-3 WALKING_DOWNSTAIRS
+-4 SITTING
+-5 STANDING
+-6 LAYING
 
 ### Subject Labels
 Between number 1 to 30.
