@@ -61,7 +61,7 @@ selected_df <- selected_df %>%
 selected_df_names <- names(selected_df)
 selected_df_names <- gsub("[0-9]", "", selected_df_names) # removing the numbers and () at the end
 selected_df_names <- gsub(" ", "", selected_df_names)
-selected_df_names <- gsub("-", " ", selected_df_names)
+selected_df_names <- gsub("-", "_", selected_df_names)
 selected_df_names <- gsub("[()]", "", selected_df_names)
 colnames(selected_df) <- selected_df_names
 
